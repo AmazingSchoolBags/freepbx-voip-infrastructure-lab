@@ -1,23 +1,19 @@
 # Infrastructure VoIP avec FreePBX
 
-Projet réalisé dans le cadre d’un TP d’infrastructure réseau.
+Projet réalisé dans le cadre d’un TP d’administration systèmes et réseaux.
 
-L'objectif était de concevoir et sécuriser un standard téléphonique VoIP complet basé sur **Asterisk / FreePBX**.
+L’objectif du projet était de concevoir, configurer et sécuriser une infrastructure VoIP complète basée sur **Asterisk / FreePBX**.
 
 ---
 
-## Architecture
-
-Le système repose sur :
+## Technologies utilisées
 
 - FreePBX
 - Asterisk
-- Extensions SIP
-- Files d'attente
-- IVR
-- Conditions temporelles
-- Firewall
+- SIP
+- UFW Firewall
 - Fail2Ban
+- Debian / Linux
 
 ---
 
@@ -25,40 +21,25 @@ Le système repose sur :
 
 ### Standard téléphonique (IVR)
 
-Menu vocal permettant de rediriger les appels vers différents services :
+Création d’un menu vocal permettant de rediriger les appels vers différents services.
 
-- Support technique
-- Service commercial
-- Comptabilité
-- Accueil
-
----
-
-### Files d'attente
+### Files d’attente (Queues)
 
 Distribution automatique des appels vers les agents disponibles.
 
----
-
 ### Gestion des horaires
 
-- Horaires d'ouverture
-- Message hors horaires
-- Pause déjeuner
-
----
+- horaires d’ouverture
+- message hors horaires
+- pause déjeuner
 
 ### Mode urgence
 
-Activation d'un flux d'appel spécifique en cas d'urgence.
-
----
+Activation d’un flux d’appel spécifique pour rediriger automatiquement les appels vers une messagerie dédiée.
 
 ### Call Parking
 
-Possibilité de mettre un appel en attente sur un slot et de le récupérer depuis un autre poste.
-
----
+Mise en attente d’un appel sur un slot récupérable depuis un autre poste.
 
 ### Follow-Me
 
@@ -66,43 +47,43 @@ Redirection intelligente des appels vers plusieurs extensions.
 
 ---
 
-### Sécurité
+## Sécurité
 
-#### Firewall UFW
+### Firewall UFW
 
-Ports autorisés uniquement pour les réseaux internes :
+Restriction des accès aux réseaux internes :
 
 - SSH
 - HTTP (console FreePBX)
 - SIP
 - RTP
 
-#### Fail2Ban
+### Fail2Ban
 
 Protection contre :
 
 - attaques brute force SSH
 - attaques SIP
 
-Les adresses IP suspectes sont automatiquement bannies.
+Test de bannissement automatique d’une adresse IP malveillante.
 
 ---
 
 ## Tests réalisés
 
 - appels internes
-- navigation IVR
-- files d'attente
-- conditions horaires
-- mode urgence
+- navigation dans l’IVR
+- fonctionnement des files d’attente
+- gestion des horaires
+- activation du mode urgence
 - call parking
 - follow-me
-- simulation d’attaque SIP avec bannissement Fail2Ban
+- test de sécurité Fail2Ban
 
 ---
 
-## Rapport complet
+## Rapport détaillé
 
-Le rapport détaillé du projet est disponible ici :
+Le rapport complet du projet est disponible ici :
 
 TP_Final_FreePBX_Mohamed_Chaouay.pdf
